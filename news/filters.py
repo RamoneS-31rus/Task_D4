@@ -13,14 +13,13 @@ class PostFilter(FilterSet):
     category = ModelChoiceFilter(
         queryset=Category.objects.all(),
         empty_label="Все категории",
-        widget=forms.Select(attrs={"class": "form-control"}),
+        widget=forms.Select(attrs={"class": "form-select"}),
     )
     date_create = DateFilter(
         label="Дата публикации с",
         lookup_expr="gte",
         widget=forms.DateTimeInput(
             attrs={"type": "date", "class": "form-control shadow-none"},
-            format="%Y-%m-%d",
         ),
     )
 
